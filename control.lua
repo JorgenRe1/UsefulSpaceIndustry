@@ -19,7 +19,7 @@ game.on_event(defines.events.on_entity_died, function(event) On_Removed(event) e
 surface = game.surfaces['nauvis']
 global.energyCreated = 0
 modifier = 1.05
-findRockets = 0
+global.findRockets = 0
 function message(mes)
   for i, player in ipairs(game.players) do
     player.print(mes)
@@ -37,10 +37,9 @@ end
 
 function On_Tick()
     if (game.tick % 60) then
-	message("checked")
-	if findRockets == 0 then
+	if global.findRockets == 0 then
 	global.energyCreated = global.rockets_sent * 100 * 60000 * modifier
-	findRockets = 1
+	global.findRockets = 1
 	  read_satellites_sent_from_gui(game.forces.player)
       message("Satelites already orbiting the planet was detected: "..global.rockets_sent)
     end
