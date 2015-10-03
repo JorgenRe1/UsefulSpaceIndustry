@@ -37,7 +37,6 @@ end
 
 function On_Tick()
     if (game.tick % 60) then
-	message("checked")
 	if global.findRockets == 0 then
 	global.energyCreated = global.rockets_sent * 100 * 60000 * modifier
 	global.findRockets = 1
